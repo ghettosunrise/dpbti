@@ -1,0 +1,21 @@
+/*********************************************\
+		Desktop First Method
+\*********************************************/
+// STYLES FOR TABLETS //
+@media only screen and (max-width : 1200px) {
+
+
+}
+
+
+// STYLES FOR MOBILES //
+@media only screen and (max-width : 750px) {
+
+	/*Disable Animation on Mobile Devices*/
+	.animated {
+		transition-property: none !important;
+		transform: none !important;
+		animation: none !important;
+	}
+}
+

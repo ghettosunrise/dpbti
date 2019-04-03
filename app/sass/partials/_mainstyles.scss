@@ -1,0 +1,42 @@
+body {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.4;
+	min-width: 320px;
+	color: #333333;
+	position: relative;
+	background-color: #ffffff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+////Удалить или закоментировать при адаптивном дизайне!//////////////
+// .container {width: 960px !important;}
+//////////////////////////////////////////////////////////////////////
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+
+.hidden {
+	display: none;
+}
+.wrapper {
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+//validatorGM styles//
+ form input.error {
+ 	box-shadow: inset 0px 0px 20px 1px rgba(255,0,0,0.3);
+ 	border: 2px solid red !important;}
+ form input.not_error {
+ 	box-shadow: inset 0px 0px 20px 1px rgba(100,255,100,0.3);
+ 	border: 2px solid #99FF99 !important;}

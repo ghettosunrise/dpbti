@@ -1,0 +1,130 @@
+<!-- build:js js/libs.min.js -->
+//- script(src='js/wow.min.js')
+script(src='js/AnchorScroller.js')
+script(src='js/cookie.js')
+script(src='js/jquery.cookie.js')
+script(src='js/validator.js')
+script(src='js/script.js')
+script(src='js/popup_script.js')
+script(src='js/jquery.countdown.js')
+//- script(src='js/slick.min.js')
+<!-- endbuild -->
+script(src='js/intlTelInput.min.js')
+script(src='js/common.js')
+<!--auto country code srcipt -->
+script.
+	$(function () {
+		$("input.phone").intlTelInput({
+			utilsScript       : 'js/utils.js',
+			defaultCountry    : 'auto',
+			separateDialCode  : false,
+			nationalMode      : false,
+			initialCountry    : 'auto',
+			geoIpLookup       : function (callback) {
+					$.get("https://ipinfo.io", function () {
+					}, "jsonp").always(function (resp) {
+							var countryCode = (resp && resp.country) ? resp.country : "";
+							callback(countryCode);
+					});
+			},
+			preferredCountries: ['ua', 'ru', 'by', 'kz']
+		});
+
+	});
+script.
+	$(window).load(function(){
+		$.getJSON('https://freegeoip.net/json/', function (data) {
+			var country = data.country_code;
+			if (getCookie("phone")) {
+					$("#phone").val(getCookie("phone"));
+			}
+			else if (country === 'UA') {
+					$('#phone').val('+380');
+			}
+			else if (country === "RU") {
+					$('#phone').val('+7');
+			}
+			else {
+					var countryData = $("#phone").intlTelInput("getSelectedCountryData");
+					var dialCode = countryData.dialCode;
+					$('#phone').val('+' + dialCode);
+			}
+		});
+	})
+<!--end auto country code srcipt -->
+<!--Validation script -->
+script.
+	function validate(formid)
+		{
+			var output = false;
+			var name, email, phone, utm_source, utm_campaign, utm_medium, utm_term;
+			form = $(formid);
+			form.addClass('loading');
+			form.find('input[name="name"]').focus();
+			form.find('input[name="email"]').focus();
+			form.find('input[name="phone"]').focus();
+			form.find('button[type="submit"]').focus();
+			name = form.find('input[name="name"]').val();
+			email = form.find('input[name="email"]').val();
+			phone = form.find('input[name="phone"]').val();
+			utm_source = form.find('input[name="utm_source"]').val();
+			utm_campaign = form.find('input[name="utm_campaign"]').val();
+			utm_medium = form.find('input[name="utm_medium"]').val();
+			utm_term = form.find('input[name="utm_term"]').val();
+			phone = phone.replace(/\s/g, '');
+			if ($('.not_error').length == 3)
+			{
+				$.ajax(
+				{
+					type: "POST",
+					url: 'gf/export.php',
+					async: false,
+					data:
+					{
+						name: name,
+						email: email,
+						phone: phone,
+						utm_campaign: utm_campaign,
+						utm_source: utm_source,
+						utm_medium: utm_medium,
+						utm_term: utm_term
+					},
+					success: function(json_data)
+					{
+						setCookie('name', name, 365);
+						setCookie('email', email, 365);
+						setCookie('phone', phone, 365);
+						console.log('data sended!');
+						console.log(json_data);
+						setTimeout(function(){
+							form.removeClass('loading');
+						}, 5000)
+						output = true;
+					}
+				});
+				
+				$.ajax({
+					type: "POST",
+					url: 'ac/export.php',
+					async: false,
+					data: {
+						list_id: list_id,
+						firstName: firstName,
+						lastName: lastName,
+						email: email,
+						phone: phone
+					},
+						success: function (response) {
+						console.log(response);
+						//window.location.replace('https://mediastart.school/kt-real/success')
+					}
+					});
+			}
+			else
+			{
+				form.find('input.error').first().focus();
+				form.removeClass('loading');
+			}
+			return output;
+		};
+<!-- END Validation script -->

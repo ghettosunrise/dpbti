@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w, d, s, l, i)
+      {
+        w[l] = w[l] || [];
+        w[l].push(
+        {
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-0000');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Заголовок</title>
+    <!-- SEO-->
+    <meta property="og:title" content="Заголовок">
+    <meta property="og:description" content="Описание">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="fb:admins" content="">
+    <meta property="fb:app_id" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;amp;subset=cyrillic" rel="stylesheet">
+    <!-- FAVICON-->
+    <link rel="icon" type="image/png" href="img/fav/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/fav/favicon-16x16.png" sizes="16x16">
+    <!-- build:css css/libs.min.css -->
+    <link rel="preload" href="css/libs.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="css/libs.css></noscript><!-- endbuild --><link rel=" stylesheet " href="css/animate.min.css "><link rel="stylesheet " href="css/main.css "><link rel="stylesheet " href="css/media.css "><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js
+        "></script><script src="js/cssrelpreload.js "> </script></head><body><!-- Google Tag Manager (noscript)--><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-0000 " height="0 " width="0 " style="display:none;visibility:hidden
+        "></iframe></noscript><!--Google End Tag Manager (noscript)--><div class="preloader "><div class="pre_circles "><div class="pre_circle1 "></div><div class="pre_circle2 "></div></div></div><h1>nu privet </h1><footer class="main-footer "><div class="container
+        "></div></footer><!-- HIDDEN ELEMENTS (MODALS) --><div class="modal-overlay " id="modal-contact "><div class="modal-content "><div class="close-button "><div class="one "></div><div class="two "></div></div><div id="video-popup
+        "></div></div></div><!-- END HIDDEN ELEMENTS (MODALS) --><!-- build:js js/libs.min.js --><script src="js/AnchorScroller.js "></script><script src="js/cookie.js "></script><script src="js/jquery.cookie.js "></script><script src="js/validator.js "></script><script src="js/script.js "></script><script src="js/popup_script.js
+        "></script><script src="js/jquery.countdown.js "></script><!-- endbuild --><script src="js/intlTelInput.min.js "></script><script src="js/common.js "></script><!--auto country code srcipt --><script>$(function () {
+	$("input.phone ").intlTelInput({
+		utilsScript       : 'js/utils.js',
+		defaultCountry    : 'auto',
+		separateDialCode  : false,
+		nationalMode      : false,
+		initialCountry    : 'auto',
+		geoIpLookup       : function (callback) {
+				$.get("https://ipinfo.io ", function () {
+				}, "jsonp ").always(function (resp) {
+						var countryCode = (resp && resp.country) ? resp.country : " ";
+						callback(countryCode);
+				});
+		},
+		preferredCountries: ['ua', 'ru', 'by', 'kz']
+	});
+
+});</script><script>$(window).load(function(){
+	$.getJSON('https://freegeoip.net/json/', function (data) {
+		var country = data.country_code;
+		if (getCookie("phone ")) {
+				$("#phone ").val(getCookie("phone "));
+		}
+		else if (country === 'UA') {
+				$('#phone').val('+380');
+		}
+		else if (country === "RU ") {
+				$('#phone').val('+7');
+		}
+		else {
+				var countryData = $("#phone ").intlTelInput("getSelectedCountryData ");
+				var dialCode = countryData.dialCode;
+				$('#phone').val('+' + dialCode);
+		}
+	});
+})</script><!--end auto country code srcipt -->
+<!--Validation script --><script>function validate(formid)
+	{
+		var output = false;
+		var name, email, phone, utm_source, utm_campaign, utm_medium, utm_term;
+		form = $(formid);
+		form.addClass('loading');
+		form.find('input[name="name "]').focus();
+		form.find('input[name="email "]').focus();
+		form.find('input[name="phone "]').focus();
+		form.find('button[type="submit "]').focus();
+		name = form.find('input[name="name "]').val();
+		email = form.find('input[name="email "]').val();
+		phone = form.find('input[name="phone "]').val();
+		utm_source = form.find('input[name="utm_source "]').val();
+		utm_campaign = form.find('input[name="utm_campaign "]').val();
+		utm_medium = form.find('input[name="utm_medium "]').val();
+		utm_term = form.find('input[name="utm_term "]').val();
+		phone = phone.replace(/\s/g, '');
+		if ($('.not_error').length == 3)
+		{
+			$.ajax(
+			{
+				type: "POST ",
+				url: 'gf/export.php',
+				async: false,
+				data:
+				{
+					name: name,
+					email: email,
+					phone: phone,
+					utm_campaign: utm_campaign,
+					utm_source: utm_source,
+					utm_medium: utm_medium,
+					utm_term: utm_term
+				},
+				success: function(json_data)
+				{
+					setCookie('name', name, 365);
+					setCookie('email', email, 365);
+					setCookie('phone', phone, 365);
+					console.log('data sended!');
+					console.log(json_data);
+					setTimeout(function(){
+						form.removeClass('loading');
+					}, 5000)
+					output = true;
+				}
+			});
+			
+			$.ajax({
+				type: "POST ",
+				url: 'ac/export.php',
+				async: false,
+				data: {
+					list_id: list_id,
+					firstName: firstName,
+					lastName: lastName,
+					email: email,
+					phone: phone
+				},
+					success: function (response) {
+					console.log(response);
+					//window.location.replace('https://mediastart.school/kt-real/success')
+				}
+				});
+		}
+		else
+		{
+			form.find('input.error').first().focus();
+			form.removeClass('loading');
+		}
+		return output;
+	};</script><!-- END Validation script --></body></html>

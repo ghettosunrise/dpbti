@@ -1,0 +1,71 @@
+.modal-overlay {
+	display: none;
+	padding-top: 1px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 1000000;
+	overflow: auto;
+	align-items: center;
+	justify-content: center;
+	.modal-content {
+		max-width: 60vw;
+		width: 100%;
+		padding:30px;
+		background:#fff;
+		margin-bottom: 0px;
+		border-radius: 4px;
+		height: 70vh;
+		position: relative;
+		min-width: 320px;
+	}
+	.close-button {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		top: 10px;
+		right: 10px;
+		padding: 0px 10px;
+		padding-top: 4px;
+		cursor: pointer;
+		transition: 0.2s linear;
+		.one {
+			height: 30px;
+			width: 2px;
+			background-color: #000;
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			transition: 0.2s linear;
+		}
+		.two {
+			margin-top: -30px;
+			height: 30px;
+			width: 2px;
+			background-color: #000;
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			transition: 0.2s linear;
+		}
+		&:hover {
+			.one {
+				-webkit-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				transition: 0.2s linear;
+				background-color: #000;
+			}
+			.two {
+				-webkit-transform: rotate(-45deg);
+				-moz-transform: rotate(-45deg);
+				-o-transform: rotate(-45deg);
+				transition: 0.2s linear;
+				background-color: #000;
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/*********************************************		Desktop First Method
+\*********************************************/
+@media only screen and (max-width: 750px) {
+  /*Disable Animation on Mobile Devices*/
+  .animated {
+    transition-property: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    animation: none !important; } }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1lZGlhLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7K0NBRStDO0FBUy9DO0VBRUMsdUNBQXVDO0VBQ3ZDO0lBQ0MscUNBQXFDO0lBQ3JDLCtCQUEyQjtJQUEzQiwyQkFBMkI7SUFDM0IsMkJBQTJCLEVBQzNCLEVBQUEiLCJmaWxlIjoibWVkaWEuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKlxcXHJcblx0XHREZXNrdG9wIEZpcnN0IE1ldGhvZFxyXG5cXCoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuLy8gU1RZTEVTIEZPUiBUQUJMRVRTIC8vXHJcbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aCA6IDEyMDBweCkge1xyXG5cclxuXHJcbn1cclxuXHJcblxyXG4vLyBTVFlMRVMgRk9SIE1PQklMRVMgLy9cclxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoIDogNzUwcHgpIHtcclxuXHJcblx0LypEaXNhYmxlIEFuaW1hdGlvbiBvbiBNb2JpbGUgRGV2aWNlcyovXHJcblx0LmFuaW1hdGVkIHtcclxuXHRcdHRyYW5zaXRpb24tcHJvcGVydHk6IG5vbmUgIWltcG9ydGFudDtcclxuXHRcdHRyYW5zZm9ybTogbm9uZSAhaW1wb3J0YW50O1xyXG5cdFx0YW5pbWF0aW9uOiBub25lICFpbXBvcnRhbnQ7XHJcblx0fVxyXG59XHJcblxyXG4iXX0= */

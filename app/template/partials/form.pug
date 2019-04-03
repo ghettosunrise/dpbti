@@ -1,0 +1,22 @@
+form.standart-form#form1(accept-charset="utf-8" onsubmit="return validate(form1);" action="" method="post")
+	.part.part1
+		p.label Ваши имя и фамилия
+		input.name(name="name", type="text", placeholder="Введите Ваши имя и фамилию", required="")
+	.part.part2
+		p.label Ваш e-mail
+		input.email(name="email", type="email", placeholder="Введите Ваш e-mail", required="")
+	.part.part3
+		p.label Ваш телефон
+		input.phone#phone(name="phone", type="text", required="")
+	.hidden-inputs.
+		<input type="hidden" name="plan" value="">
+		<input type="hidden" name="sum" value="">
+		<input type="hidden" name="sum_usd" value="">
+		<input type="hidden" name="product" value="">
+		<input type="hidden" name="utm_source" value="">
+		<input type="hidden" name="utm_medium" value="">
+		<input type="hidden" name="utm_term" value="">
+		<input type="hidden" name="utm_campaign" value="">
+		<input type="hidden" name="country" value="">
+		<input type="hidden" name="referer" value="">
+	button.btn.subm(type="submit") Принять участие

@@ -1,0 +1,67 @@
+/*Параметры контейнера */
+.countdownHolder{
+	width:450px;
+	margin: 0 auto;
+	font: 30px/1.5 Roboto, sans-serif;
+	text-align:center;
+	letter-spacing:-3px;
+	.position{
+		display: inline-block;
+		height: 1.7em;
+		overflow: hidden;
+		position: relative;
+		width: 0.55em;
+	}
+	/*Параметры цифр */
+	.digit{
+		position:absolute;
+		display:block;
+		width:0.5em;
+		border-radius:0.2em;
+		text-align:center;
+		color:#000;
+		letter-spacing:-1px;
+		&.static {
+			margin-top:18px;
+		}
+	}
+	/*Параметры подложки для секций */
+	.coundDays,
+	.countHours,
+	.countMinutes,
+	.countSeconds {
+		background:#fff;
+		border-radius:5px;
+		padding:10px 20px;
+		margin:5px;
+	}
+	/*Параметры секций разделения (:)*/
+	.countDiv {
+		display:none;
+		width:16px;
+		height:1.6em;
+		position:relative;
+		&:before,
+		&:after {
+			position:absolute;
+			width:5px;
+			height:5px;
+			background-color:#444;
+			border-radius:50%;
+			left:50%;
+			margin-left:-3px;
+			top:0.5em;
+			box-shadow:1px 1px 1px rgba(4, 4, 4, 0.5);
+			content:'';
+		}
+		&:after {
+			top:0.9em;
+		}
+	}
+	/*Параметры вспомогательного текста (дни, часы, минуты, секунды)*/
+	.textdigit{
+		font-size:15px;
+		font-family: Roboto;
+		letter-spacing: 0px;
+	}
+}
